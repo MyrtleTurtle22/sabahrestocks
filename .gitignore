@@ -172,3 +172,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Node modules & React build
+node_modules/
+build/
+
+# Python environment & cache
+__pycache__/
+venv/
+env/
+*.pyc
+.DS_Store
