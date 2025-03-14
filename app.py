@@ -7,7 +7,7 @@ from openpyxl.styles import Font, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://sabahrestocks.netlify.app"}})
 
 @app.route('/upload', methods=['POST'])
 def upload_files():
