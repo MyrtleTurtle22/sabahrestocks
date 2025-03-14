@@ -71,7 +71,7 @@ const FileUpload = () => {
         {downloadUrl && (
           <a
             href={downloadUrl}
-            download="formatted_output.xlsx"
+            download="[Store] Restock [Date].xlsx"
             className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-green-500 hover:bg-green-600 text-white"
           >
             <FaDownload className="text-lg" />

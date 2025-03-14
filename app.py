@@ -28,7 +28,7 @@ def upload_files():
 
     merged_df = dfwh.merge(dfstore, on="Shopify ID", how="outer")
 
-    merged_df.drop(columns=["SKU", "Shopify ID", "Vendor"], errors='ignore', inplace=True)
+    merged_df.drop(columns=["SKU", "Vendor"], errors='ignore', inplace=True)
 
     sort_columns = ["Product Type", "Product", "Variant"]
     merged_df.sort_values(by=[col for col in sort_columns if col in merged_df.columns], inplace=True)
@@ -36,12 +36,16 @@ def upload_files():
     merged_df["SEND"] = ""
 
     # Reorder columns
-    column_order = ["Product Type", "Product", "Variant", "WH", "Store", "Sales", "SEND"]
+    column_order = ["Product Type", "Shopify ID", "Product", "Variant", "WH", "Store", "Sales", "SEND"]
     merged_df = merged_df[column_order]
 
     output = io.BytesIO()
     wb = Workbook()
     ws = wb.active
+
+    col_idx = 2
+    ws.column_dimensions[get_column_letter(col_idx)].hidden = True
+
 
     headers = list(merged_df.columns)
     for col_num, header in enumerate(headers, 1):
