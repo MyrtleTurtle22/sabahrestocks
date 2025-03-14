@@ -26,7 +26,7 @@ const FileUpload = () => {
     formData.append("file2", file2);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/upload", formData, {
+      const response = await axios.post("https://sabahrestocks.onrender.com", formData, {
         responseType: "blob",
       });
 
